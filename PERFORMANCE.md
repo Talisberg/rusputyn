@@ -102,7 +102,12 @@ The `intcomma()` function shows **66.4x speedup** - formatting millions of numbe
 - Time per validation: 0.1μs
 - Daily processing time: **0.1 seconds**
 
-**Time saved**: 5.2 seconds/day = **31.5 minutes/week** = **27.3 hours/year**
+**Impact**: **5.2 seconds saved/day** = 31.5 minutes/week = 27.3 hours/year
+
+While the absolute time may seem small, this translates to:
+- Lower server costs (less CPU usage)
+- Better user experience (faster response times)
+- Ability to handle more concurrent requests
 
 ### For a Data Pipeline Processing 100M Records
 
@@ -114,7 +119,12 @@ The `intcomma()` function shows **66.4x speedup** - formatting millions of numbe
 - Time per detection: 0.11μs
 - Total processing time: **11 seconds**
 
-**Time saved**: **47.6 minutes** (259x faster)
+**Impact**: Processing time reduced from **47.7 minutes to 11 seconds** (259x faster)
+
+This dramatic improvement means:
+- Batch jobs complete in seconds instead of nearly an hour
+- Near real-time processing becomes feasible
+- Significant infrastructure cost savings at scale
 
 ---
 
