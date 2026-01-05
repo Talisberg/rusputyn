@@ -78,9 +78,29 @@ See [PERFORMANCE.md](./PERFORMANCE.md) for detailed benchmark results including:
 
 ## Getting Started
 
-Each package in `libraries/` is an independent Rust crate with Python bindings via PyO3.
+### Quick Example
 
-See individual package READMEs for installation and usage instructions.
+```python
+# Before: Pure Python
+import validators
+result = validators.email("user@example.com")  # 189K ops/sec
+
+# After: Rust-powered (just change the import!)
+import validators_rs as validators
+result = validators.email("user@example.com")  # 9.7M ops/sec ⚡
+
+# Same code, same result, 51x faster!
+```
+
+### Installation
+
+```bash
+pip install validators-rs
+```
+
+See [USAGE_EXAMPLES.md](./USAGE_EXAMPLES.md) for detailed migration guides and real-world examples.
+
+Each package in `libraries/` is an independent Rust crate with Python bindings via PyO3.
 
 ## Contributing
 
