@@ -7,20 +7,20 @@ This Docker environment provides a complete setup for building and testing Ruspu
 ### Build and run interactive shell
 
 ```bash
-docker-compose up -d rusputyn-dev
-docker-compose exec rusputyn-dev bash
+docker compose up -d rusputyn-dev
+docker compose exec rusputyn-dev bash
 ```
 
 ### Run all tests
 
 ```bash
-docker-compose run rusputyn-test
+docker compose run rusputyn-test
 ```
 
 ### Build a specific package
 
 ```bash
-docker-compose exec rusputyn-dev bash
+docker compose exec rusputyn-dev bash
 cd libraries/charset-normalizer-rs
 maturin develop --release
 python3 benchmark.py
@@ -48,25 +48,25 @@ This project uses [uv](https://github.com/astral-sh/uv) for Python package manag
 ### Start development environment
 
 ```bash
-docker-compose up -d rusputyn-dev
+docker compose up -d rusputyn-dev
 ```
 
 ### Enter the container
 
 ```bash
-docker-compose exec rusputyn-dev bash
+docker compose exec rusputyn-dev bash
 ```
 
 ### Stop the environment
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### Rebuild after changes
 
 ```bash
-docker-compose build
+docker compose build
 ```
 
 ## Testing Individual Packages
@@ -102,18 +102,18 @@ This significantly speeds up subsequent builds.
 If you encounter permission issues with mounted volumes:
 
 ```bash
-docker-compose run --user $(id -u):$(id -g) rusputyn-dev bash
+docker compose run --user $(id -u):$(id -g) rusputyn-dev bash
 ```
 
 ### Clean rebuild
 
 ```bash
-docker-compose down -v
-docker-compose build --no-cache
+docker compose down -v
+docker compose build --no-cache
 ```
 
 ### View logs
 
 ```bash
-docker-compose logs rusputyn-test
+docker compose logs rusputyn-test
 ```

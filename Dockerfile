@@ -24,16 +24,16 @@ WORKDIR /rusputyn
 # Copy project files
 COPY . .
 
-# Create virtual environment with uv
-RUN uv venv /opt/venv
+# Create virtual environment with uv (ensure uv is in PATH)
+RUN /root/.cargo/bin/uv venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 ENV VIRTUAL_ENV="/opt/venv"
 
 # Install maturin and pytest using uv
-RUN uv pip install maturin pytest
+RUN /root/.cargo/bin/uv pip install maturin pytest
 
 # Install Python dependencies for benchmarks using uv
-RUN uv pip install \
+RUN /root/.cargo/bin/uv pip install \
     charset-normalizer \
     packaging \
     python-dateutil \

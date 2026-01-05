@@ -1,5 +1,11 @@
 # Rusputyn
 
+[![CI](https://github.com/Talisberg/rusputyn/workflows/CI/badge.svg)](https://github.com/Talisberg/rusputyn/actions/workflows/ci.yml)
+[![Release](https://github.com/Talisberg/rusputyn/workflows/Release/badge.svg)](https://github.com/Talisberg/rusputyn/actions/workflows/release.yml)
+[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](./DOCKER.md)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Rust](https://img.shields.io/badge/rust-1.75+-orange.svg)](https://www.rust-lang.org/)
+
 High-performance Rust implementations of popular Python packages, delivering 10-80x speedups as drop-in replacements.
 
 ## Overview
