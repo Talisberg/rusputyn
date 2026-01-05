@@ -45,15 +45,19 @@ rusputyn/
 └── function_factory.jsx # Build tooling
 ```
 
-## Next Targets
+## Roadmap
 
-**Phase 1: Quick Wins** (targeting +937M downloads/month)
+**Current**: 7 packages (2.85B downloads/month)
+**Target**: 21 packages (7.47B downloads/month)
 
-1. **markupsafe-rs** (408M) - HTML/XML escaping - Expected 10-30x speedup
-2. **python-dotenv-rs** (273M) - .env file parsing - Expected 5-15x speedup
-3. **tomli-rs** (256M) - TOML parser - Expected 3-10x speedup
+### 🔥 Next Up (Phase 1)
+1. **markupsafe-rs** (408M) - 80% complete
+2. **tomli-rs** (256M) - 70% complete
+3. **python-dotenv-rs** (273M) - Planned
+4. **attrs-rs** (443M) - Planned
 
-See [DELIVERABLES.md](./DELIVERABLES.md) for complete roadmap and analysis.
+See [ROADMAP.md](./ROADMAP.md) for complete development queue and community voting.
+See [DELIVERABLES.md](./DELIVERABLES.md) for technical analysis.
 
 ## Performance Results
 

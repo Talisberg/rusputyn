@@ -34,3 +34,6 @@ Cargo.lock
 # Project specific
 *.zip
 .env
+
+# Marketing/posting materials
+posting/
