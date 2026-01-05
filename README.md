@@ -55,10 +55,20 @@ rusputyn/
 
 See [DELIVERABLES.md](./DELIVERABLES.md) for complete roadmap and analysis.
 
+## Performance Results
+
+**Average speedup: 48x faster** across benchmarked packages
+
+See [PERFORMANCE.md](./PERFORMANCE.md) for detailed benchmark results including:
+- **261.7x faster** charset encoding detection
+- **66.4x faster** number formatting
+- **58.8x faster** URL validation
+- Real-world impact analysis
+
 ## Performance Philosophy
 
 - **Drop-in compatibility**: 100% API-compatible with original Python packages
-- **Real-world speedups**: 10-80x performance improvements on typical workloads
+- **Real-world speedups**: 10-260x performance improvements on typical workloads
 - **Zero-config**: Install and immediately benefit from performance gains
 - **Safe**: Leverages Rust's memory safety guarantees
 
