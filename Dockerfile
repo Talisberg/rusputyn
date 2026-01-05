@@ -16,7 +16,9 @@ RUN apt-get update && apt-get install -y \
 
 # Install uv for fast Python package management
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
+
+# Update PATH to include uv location
+ENV PATH="/root/.local/bin:$PATH"
 
 # Set working directory
 WORKDIR /rusputyn
@@ -24,16 +26,16 @@ WORKDIR /rusputyn
 # Copy project files
 COPY . .
 
-# Create virtual environment with uv (ensure uv is in PATH)
-RUN /root/.cargo/bin/uv venv /opt/venv
+# Create virtual environment with uv
+RUN uv venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 ENV VIRTUAL_ENV="/opt/venv"
 
 # Install maturin and pytest using uv
-RUN /root/.cargo/bin/uv pip install maturin pytest
+RUN uv pip install maturin pytest
 
 # Install Python dependencies for benchmarks using uv
-RUN /root/.cargo/bin/uv pip install \
+RUN uv pip install \
     charset-normalizer \
     packaging \
     python-dateutil \
