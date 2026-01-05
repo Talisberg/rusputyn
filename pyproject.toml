@@ -1,0 +1,44 @@
+[project]
+name = "rusputyn"
+version = "0.1.0"
+description = "High-performance Rust implementations of popular Python packages"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Rusputyn Contributors"}
+]
+
+dependencies = [
+    "maturin>=1.0.0",
+    "pytest>=7.0.0",
+]
+
+[project.optional-dependencies]
+benchmark = [
+    "charset-normalizer",
+    "packaging",
+    "python-dateutil",
+    "colorama",
+    "tabulate",
+    "humanize",
+    "validators",
+    "markupsafe",
+    "tomli",
+]
+
+dev = [
+    "maturin>=1.0.0",
+    "pytest>=7.0.0",
+    "pytest-benchmark",
+]
+
+[build-system]
+requires = ["maturin>=1.0.0"]
+build-backend = "maturin"
+
+[tool.uv]
+dev-dependencies = [
+    "maturin>=1.0.0",
+    "pytest>=7.0.0",
+]

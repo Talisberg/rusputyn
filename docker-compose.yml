@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  rusputyn-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rusputyn-dev
+    volumes:
+      - .:/rusputyn
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/rusputyn/target
+    working_dir: /rusputyn
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  rusputyn-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rusputyn-test
+    volumes:
+      - .:/rusputyn
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/rusputyn/target
+    working_dir: /rusputyn
+    command: /rusputyn/scripts/test_all.sh
+
+volumes:
+  cargo-cache:
+  target-cache:
