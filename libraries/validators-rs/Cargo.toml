@@ -1,0 +1,15 @@
+[package]
+name = "validators_rs"
+version = "0.1.0"
+edition = "2021"
+description = "Fast Rust implementation of Python's validators library"
+license = "MIT"
+
+[lib]
+name = "validators_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+regex = "1"
+once_cell = "1.19"

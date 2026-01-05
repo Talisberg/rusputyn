@@ -1,0 +1,14 @@
+[package]
+name = "charset_normalizer_rs"
+version = "0.1.0"
+edition = "2021"
+description = "Fast Rust implementation of charset-normalizer"
+license = "MIT"
+
+[lib]
+name = "charset_normalizer_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+encoding_rs = "0.8"

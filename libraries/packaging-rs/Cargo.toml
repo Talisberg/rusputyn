@@ -1,0 +1,15 @@
+[package]
+name = "packaging_rs"
+version = "0.1.0"
+edition = "2021"
+description = "Fast Rust implementation of Python's packaging library"
+license = "MIT"
+
+[lib]
+name = "packaging_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+once_cell = "1.19"
+regex = "1"

@@ -1,0 +1,19 @@
+# Rust-accelerated versions (when published to PyPI)
+# For now, install from local repos or git
+
+# charset-normalizer-rs
+# packaging-rs
+# dateutil-rs
+# colorama-rs
+# tabulate-rs
+# humanize-rs
+# validators-rs
+
+# Or install from git (example):
+# pip install git+https://github.com/youruser/charset-normalizer-rs.git
+# pip install git+https://github.com/youruser/packaging-rs.git
+# pip install git+https://github.com/youruser/dateutil-rs.git
+# pip install git+https://github.com/youruser/colorama-rs.git
+# pip install git+https://github.com/youruser/tabulate-rs.git
+# pip install git+https://github.com/youruser/humanize-rs.git
+# pip install git+https://github.com/youruser/validators-rs.git

@@ -1,0 +1,21 @@
+[package]
+name = "markupsafe-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tal"]
+description = "High-performance Rust implementation of MarkupSafe for Python"
+license = "BSD-3-Clause"
+repository = "https://github.com/youruser/markupsafe-rs"
+
+[lib]
+name = "markupsafe_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

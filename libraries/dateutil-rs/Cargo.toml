@@ -1,0 +1,16 @@
+[package]
+name = "dateutil_rs"
+version = "0.1.0"
+edition = "2021"
+description = "Fast Rust implementation of Python's python-dateutil library"
+license = "MIT"
+
+[lib]
+name = "dateutil_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module", "chrono"] }
+chrono = "0.4"
+once_cell = "1.19"
+regex = "1"

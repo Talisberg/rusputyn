@@ -1,0 +1,22 @@
+[package]
+name = "tomli-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Tal"]
+description = "High-performance Rust implementation of tomli TOML parser for Python"
+license = "MIT"
+repository = "https://github.com/youruser/tomli-rs"
+
+[lib]
+name = "tomli_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+toml = "0.8"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
