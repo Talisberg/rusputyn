@@ -232,6 +232,91 @@ Existing packages receive ongoing updates:
 
 ---
 
+## 🦀 Dual-Ecosystem Strategy: Rust Crates + Python Bindings
+
+This is a strategic move for the project's growth. By building the core logic in Rust to power Python extensions, we are effectively creating a **high-performance Rust Crates library** as a byproduct.
+
+### Core-Crate Architecture
+
+Following the proven pattern of **Polars**, **Pydantic v2**, and **cryptography**:
+
+1. **`rusputyn-core`**: Pure Rust crate containing optimized logic
+   - Published to **crates.io**
+   - Used directly by Rust developers
+   - Zero Python dependencies
+   - Battle-tested logic with API parity
+
+2. **`rusputyn-py`**: Python wrapper using PyO3
+   - Exposes core logic to Python
+   - Published to **PyPI**
+   - 100% API compatible with original packages
+   - Thin binding layer over core
+
+### Why This is a Win-Win
+
+**For Python Developers:**
+- Drop-in replacements with massive speedups
+- Battle-tested implementations
+- Professional maintenance
+
+**For Rust Developers:**
+- Access to optimized, production-ready utilities
+- Logic parity with world's most popular Python packages
+- No need to reinvent the wheel
+
+**For The Project:**
+- **Wider collaboration**: Rust community can optimize without touching Python
+- **Dual-use logic**: Not just "fixing Python" - building fastest version for *any* language
+- **More contributors**: Tap into both Python and Rust ecosystems
+- **Better quality**: More eyes, more testing, more improvements
+
+### Publication Strategy
+
+Each package will be available in two forms:
+
+| Package | Python (PyPI) | Rust (crates.io) |
+|---------|---------------|------------------|
+| validators | `validators-rs` | `rusputyn-validators` |
+| charset-normalizer | `charset-normalizer-rs` | `rusputyn-charset` |
+| python-dotenv | `python-dotenv-rs` | `rusputyn-dotenv` |
+| ... | ... | ... |
+
+### Roadmap for Rust Ecosystem
+
+**Phase 1**: Refactor existing packages to core-crate architecture
+- Extract pure Rust logic from PyO3 bindings
+- Create clean Rust-native APIs
+- Publish foundational crates
+
+**Phase 2**: Expand Rust-first features
+- Add features useful for Rust developers
+- Comprehensive Rust documentation
+- Rust-specific benchmarks
+
+**Phase 3**: Cross-pollination
+- Python improvements benefit Rust users
+- Rust optimizations benefit Python users
+- United by high-performance, correctness-first approach
+
+### Technical Note for Developers
+
+> **Building Dual-Purpose Libraries:**
+> Every Rusputyn package follows a core-crate architecture. The high-performance logic lives in pure Rust crates (available on crates.io), with thin Python bindings for PyPI. This means you're not just getting a Python speedup - you're getting access to some of the fastest implementations of these algorithms, period.
+
+### Benefits at Scale
+
+**10B+ monthly downloads** across ecosystems:
+- Python: Faster startup, better performance
+- Rust: Battle-tested utilities, proven at scale
+- Both: Shared improvements, unified quality
+
+**Example: validators-rs**
+- Python: 15M downloads/month, 51x faster email validation
+- Rust: Use the same battle-tested regex logic in your Rust apps
+- Win-win: One codebase, two ecosystems
+
+---
+
 ## 📢 Stay Updated
 
 - ⭐ Star the repo for updates

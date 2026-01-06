@@ -31,5 +31,4 @@ Homepage = "https://github.com/youruser/tomli-rs"
 Repository = "https://github.com/youruser/tomli-rs"
 
 [tool.maturin]
-python-source = "python"
 module-name = "tomli_rs"

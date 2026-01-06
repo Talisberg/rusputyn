@@ -76,6 +76,18 @@ See [PERFORMANCE.md](./PERFORMANCE.md) for detailed benchmark results including:
 - **Zero-config**: Install and immediately benefit from performance gains
 - **Safe**: Leverages Rust's memory safety guarantees
 
+## 🦀 Dual-Ecosystem Design
+
+Rusputyn follows a **core-crate architecture** (like Polars and Pydantic v2):
+
+- **Pure Rust core**: High-performance logic, zero Python dependencies
+- **Python bindings**: Thin PyO3 wrapper for Python integration
+- **Published to both**: PyPI for Python devs, crates.io for Rust devs
+
+**For Rust Developers:** Every package will be available as a standalone Rust crate. You get battle-tested, production-ready utilities optimized for speed. Coming to crates.io soon.
+
+**For Python Developers:** Same packages you know, 10-260x faster, with the confidence that the core logic is being improved by both Python and Rust communities.
+
 ## Getting Started
 
 ### Quick Example
