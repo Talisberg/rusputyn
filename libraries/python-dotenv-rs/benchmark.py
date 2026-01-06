@@ -8,6 +8,7 @@ Measures performance differences for common .env operations
 import time
 import tempfile
 import os
+from io import StringIO
 
 try:
     import dotenv
@@ -60,14 +61,14 @@ KEY5=value5
     iterations = 50000
 
     if PYTHON_AVAILABLE:
-        py_time, py_ops = benchmark("Python", lambda: dotenv.dotenv_values(stream=content), iterations)
+        py_time, py_ops = benchmark("Python", lambda: dotenv.dotenv_values(stream=StringIO(content)), iterations)
         print(f"Python dotenv:       {py_ops:>10,.0f} ops/sec ({py_time*1000:.2f}ms)")
 
     rs_time, rs_ops = benchmark("Rust", lambda: dotenv_rs.dotenv_values(content), iterations)
     print(f"Rust dotenv_rs:      {rs_ops:>10,.0f} ops/sec ({rs_time*1000:.2f}ms)")
 
     if PYTHON_AVAILABLE:
-        speedup = py_ops / rs_ops if rs_ops > 0 else 0
+        speedup = rs_ops / py_ops if py_ops > 0 else 0
         print(f"Speedup: {speedup:.1f}x faster")
 
 
@@ -110,14 +111,14 @@ ENABLE_METRICS=false
     iterations = 20000
 
     if PYTHON_AVAILABLE:
-        py_time, py_ops = benchmark("Python", lambda: dotenv.dotenv_values(stream=content), iterations)
+        py_time, py_ops = benchmark("Python", lambda: dotenv.dotenv_values(stream=StringIO(content)), iterations)
         print(f"Python dotenv:       {py_ops:>10,.0f} ops/sec ({py_time*1000:.2f}ms)")
 
     rs_time, rs_ops = benchmark("Rust", lambda: dotenv_rs.dotenv_values(content), iterations)
     print(f"Rust dotenv_rs:      {rs_ops:>10,.0f} ops/sec ({rs_time*1000:.2f}ms)")
 
     if PYTHON_AVAILABLE:
-        speedup = py_ops / rs_ops if rs_ops > 0 else 0
+        speedup = rs_ops / py_ops if py_ops > 0 else 0
         print(f"Speedup: {speedup:.1f}x faster")
 
 
