@@ -1,0 +1,103 @@
+name: Build Multi-Platform Wheels
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  list-packages:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.set-packages.outputs.packages }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: set-packages
+        run: |
+          packages=$(ls -d libraries/*/ | grep -v jsonschema-rs | xargs -n1 basename | jq -R -s -c 'split("\n")[:-1]')
+          echo "packages=$packages" >> $GITHUB_OUTPUT
+
+  build-wheels:
+    needs: list-packages
+    name: Build ${{ matrix.package }} on ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.list-packages.outputs.packages) }}
+        platform:
+          - ubuntu-latest
+          - macos-13      # Intel
+          - macos-14      # Apple Silicon
+          - windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install maturin
+        run: pip install maturin[patchelf]
+
+      - name: Build wheels (Linux/macOS)
+        if: runner.os != 'Windows'
+        working-directory: libraries/${{ matrix.package }}
+        run: |
+          maturin build --release --out ../../dist \
+            -i python3.8 \
+            -i python3.9 \
+            -i python3.10 \
+            -i python3.11 \
+            -i python3.12
+
+      - name: Build wheels (Windows)
+        if: runner.os == 'Windows'
+        working-directory: libraries/${{ matrix.package }}
+        run: |
+          maturin build --release --out ../../dist `
+            -i python `
+            -i python3.8 `
+            -i python3.9 `
+            -i python3.10 `
+            -i python3.11 `
+            -i python3.12
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.package }}-${{ matrix.platform }}
+          path: dist/*.whl
+          if-no-files-found: error
+
+  publish:
+    name: Publish to PyPI
+    needs: build-wheels
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch')
+    environment:
+      name: pypi
+      url: https://pypi.org/project/
+
+    steps:
+      - name: Download all wheels
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: wheels-*
+          merge-multiple: true
+
+      - name: List wheels
+        run: ls -lh dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          skip-existing: true

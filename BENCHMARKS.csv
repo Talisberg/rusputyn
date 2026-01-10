@@ -1,0 +1,53 @@
+Package,Downloads/Month,Test Category,Python (ops/sec),Rust (ops/sec),Speedup,Status
+charset-normalizer-rs,890000000,Encoding Detection,16100,4213800,261.7x,Complete
+charset-normalizer-rs,890000000,Simple ASCII,850000,4163200,4.9x,Complete
+charset-normalizer-rs,890000000,UTF-8 Detection,18500,6061000,327.7x,Complete
+packaging-rs,780000000,Parse Simple,552000,2287000,4.1x,Complete
+packaging-rs,780000000,Parse Complex,89000,162000,1.8x,Complete
+packaging-rs,780000000,Parse Epoch,228000,1097000,4.8x,Complete
+packaging-rs,780000000,Compare Versions,1127000,2488000,2.2x,Complete
+dateutil-rs,717000000,ISO Simple,307000,2244000,7.3x,Complete
+dateutil-rs,717000000,ISO with Microseconds,80000,3976000,49.7x,Complete
+dateutil-rs,717000000,ISO Datetime,78000,4191000,53.7x,Complete
+dateutil-rs,717000000,ISO with Offset,62000,4135000,66.7x,Complete
+dateutil-rs,717000000,ISO with Timezone,62000,4211000,67.9x,Complete
+markupsafe-rs,408000000,Escape Simple,4180000,9326000,2.2x,Complete
+markupsafe-rs,408000000,Escape HTML,2912000,4392000,1.5x,Complete
+markupsafe-rs,408000000,Escape Long Text,391000,462000,1.2x,Complete
+markupsafe-rs,408000000,Escape Unicode,3321000,4354000,1.3x,Complete
+markupsafe-rs,408000000,Markup Operations,661000,1647000,2.5x,Complete
+markupsafe-rs,408000000,String Methods,870000,3104000,3.6x,Complete
+markupsafe-rs,408000000,Template Rendering,58900,78200,1.3x,Complete
+colorama-rs,289000000,ANSI Color Access,45454545,55555555,1.2x,Complete
+colorama-rs,289000000,Color String Building,11111111,13888888,1.3x,Complete
+python-dotenv-rs,273000000,Parse Simple,15000,1060000,70.7x,Complete
+python-dotenv-rs,273000000,Parse Complex,8000,513000,64.1x,Complete
+python-dotenv-rs,273000000,Load from File,2000,15000,7.5x,Complete
+python-dotenv-rs,273000000,set_key,500,307000,614.0x,Complete
+python-dotenv-rs,273000000,get_key,50000,12500000,250.0x,Complete
+tomli-rs,256000000,Parse Simple,41000,92000,2.2x,Complete
+tomli-rs,256000000,Parse Complex,8000,20000,2.5x,Complete
+tomli-rs,256000000,Parse Real Config,15000,36000,2.4x,Complete
+tabulate-rs,124000000,Small Simple,33000,369000,11.2x,Complete
+tabulate-rs,124000000,Small Grid,31000,323000,10.3x,Complete
+tabulate-rs,124000000,Small GitHub,33000,384000,11.4x,Complete
+tabulate-rs,124000000,Medium Simple,2292,18710,8.2x,Complete
+tabulate-rs,124000000,Medium Grid,2021,17093,8.5x,Complete
+tabulate-rs,124000000,Large Simple,564,4332,7.7x,Complete
+tabulate-rs,124000000,Large Pretty,624,4225,6.8x,Complete
+humanize-rs,35000000,intcomma,236000,15666000,66.4x,Complete
+humanize-rs,35000000,intword,191000,500000,2.6x,Complete
+humanize-rs,35000000,naturalsize,145000,1923000,13.3x,Complete
+humanize-rs,35000000,naturaltime,80000,2000000,25.0x,Complete
+validators-rs,15000000,Email Validation,189000,9677000,51.2x,Complete
+validators-rs,15000000,URL Validation,165000,9708000,58.8x,Complete
+validators-rs,15000000,Domain Validation,210000,2551000,12.1x,Complete
+validators-rs,15000000,IPv4 Validation,500000,6666000,13.3x,Complete
+validators-rs,15000000,UUID Validation,238000,18918000,79.4x,Complete
+pyyaml-rs,575000000,Load Simple,9721,326338,33.6x,Complete
+pyyaml-rs,575000000,Load Nested,2664,93329,35.0x,Complete
+pyyaml-rs,575000000,Load List,3284,120339,36.6x,Complete
+pyyaml-rs,575000000,Load All (3 docs),4154,156106,37.6x,Complete
+pyyaml-rs,575000000,Dump Simple,18260,290314,15.9x,Complete
+pyyaml-rs,575000000,Dump Nested,5135,78408,15.3x,Complete
+pyyaml-rs,575000000,Dump All (3 docs),8829,127495,14.4x,Complete
