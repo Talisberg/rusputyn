@@ -1,7 +1,6 @@
 use chrono::{Datelike, Local};
 use once_cell::sync::Lazy;
 use pyo3::prelude::*;
-use pyo3::types::PyDateTime;
 use regex::Regex;
 use std::collections::HashMap;
 
@@ -251,14 +250,14 @@ fn parse(
     default: Option<&Bound<'_, PyAny>>,
     ignoretz: bool,
     tzinfos: Option<&Bound<'_, PyAny>>,
-) -> PyResult<Py<PyDateTime>> {
+) -> PyResult<PyObject> {
     let _ = (parserinfo, fuzzy, fuzzy_with_tokens, default, tzinfos); // TODO: implement these
-    
+
     let parsed = parse_datetime_str(timestr, dayfirst, yearfirst)
         .ok_or_else(|| pyo3::exceptions::PyValueError::new_err(
             format!("Unable to parse datetime string: {}", timestr)
         ))?;
-    
+
     // Validate
     if parsed.month < 1 || parsed.month > 12 {
         return Err(pyo3::exceptions::PyValueError::new_err("Invalid month"));
@@ -266,26 +265,29 @@ fn parse(
     if parsed.day < 1 || parsed.day > 31 {
         return Err(pyo3::exceptions::PyValueError::new_err("Invalid day"));
     }
-    
-    // Create Python datetime (simplified - no timezone for now)
+
+    // Create Python datetime using the datetime module
     let _ = ignoretz; // TODO: implement timezone handling
-    
-    PyDateTime::new_bound(
-        py,
+
+    let datetime_mod = py.import_bound("datetime")?;
+    let datetime_cls = datetime_mod.getattr("datetime")?;
+
+    let dt = datetime_cls.call1((
         parsed.year,
-        parsed.month as u8,
-        parsed.day as u8,
-        parsed.hour as u8,
-        parsed.minute as u8,
-        parsed.second as u8,
+        parsed.month,
+        parsed.day,
+        parsed.hour,
+        parsed.minute,
+        parsed.second,
         parsed.microsecond,
-        None,
-    ).map(|dt| dt.unbind())
+    ))?;
+
+    Ok(dt.into())
 }
 
 /// Parse an ISO format datetime string (fast path)
 #[pyfunction]
-fn isoparse(py: Python<'_>, timestr: &str) -> PyResult<Py<PyDateTime>> {
+fn isoparse(py: Python<'_>, timestr: &str) -> PyResult<PyObject> {
     parse(py, timestr, None, false, false, false, false, None, false, None)
 }
 
