@@ -30,5 +30,3 @@ Homepage = "https://github.com/youruser/markupsafe-rs"
 Repository = "https://github.com/youruser/markupsafe-rs"
 
 [tool.maturin]
-python-source = "python"
-module-name = "markupsafe_rs"
