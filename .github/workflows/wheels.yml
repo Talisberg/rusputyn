@@ -63,6 +63,8 @@ jobs:
       - name: Build wheels (Windows)
         if: runner.os == 'Windows'
         working-directory: libraries/${{ matrix.package }}
+        env:
+          PYO3_USE_ABI3_FORWARD_COMPATIBILITY: 1
         run: |
           maturin build --release --out ../../dist --find-interpreter
 
