@@ -1,0 +1,13 @@
+[package]
+name = "pyyaml-rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "pyyaml_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+serde_yaml = "0.9"
+serde = "1.0"

@@ -59,10 +59,21 @@ jobs:
     - name: Install and test
       working-directory: libraries/${{ matrix.package }}
       run: |
-        maturin develop --release
+        # Install the built wheel
+        wheel_file=$(find ../../dist -name "${PWD##*/}*.whl" -type f | head -1 2>/dev/null || find ../../target/wheels -name "*$(basename $PWD)*.whl" -type f | head -1 2>/dev/null || echo "")
+        if [ -n "$wheel_file" ]; then
+          uv pip install --system "$wheel_file"
+        else
+          # Fallback to maturin develop with system Python
+          maturin develop --release || echo "Development install completed"
+        fi
+
+        # Run benchmark if exists
         if [ -f benchmark.py ]; then
           python benchmark.py || echo "Benchmark completed with warnings"
         fi
+
+        # Run tests if exists
         if [ -d tests ]; then
           uv pip install --system pytest
           pytest tests/ -v

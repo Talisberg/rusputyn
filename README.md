@@ -6,7 +6,7 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![Rust](https://img.shields.io/badge/rust-1.75+-orange.svg)](https://www.rust-lang.org/)
 
-High-performance Rust implementations of popular Python packages, delivering 10-80x speedups as drop-in replacements.
+High-performance Rust implementations of popular Python packages, delivering 1.2-614x speedups as drop-in replacements.
 
 ## Overview
 
@@ -19,13 +19,13 @@ Rusputyn creates optimized Rust versions of the most popular pure-Python package
 | Package | Downloads/Month | Speedup Range | Status |
 |---------|-----------------|---------------|--------|
 | charset-normalizer-rs | 890M | 4.9x - 327.7x | ✅ Complete |
-| packaging-rs | 780M | 1.6x - 6.3x | ✅ Complete |
-| dateutil-rs | 717M | 9.4x - 85.4x | ✅ Complete |
-| markupsafe-rs | 408M | 10x - 30x | ✅ Complete |
-| colorama-rs | 289M | 1.4x - 1.6x | ✅ Complete |
+| packaging-rs | 780M | 1.8x - 4.8x | ✅ Complete |
+| dateutil-rs | 717M | 7.3x - 67.9x | ✅ Complete |
+| markupsafe-rs | 408M | 1.2x - 3.6x | ✅ Complete |
+| colorama-rs | 289M | 1.2x - 1.3x | ✅ Complete |
 | python-dotenv-rs | 273M | 16x - 614x | ✅ Complete |
 | tomli-rs | 256M | 2.2x - 2.5x | ✅ Complete |
-| tabulate-rs | 124M | 7.6x - 14.1x | ✅ Complete |
+| tabulate-rs | 124M | 6.8x - 11.4x | ✅ Complete |
 | humanize-rs | 35M | 2.6x - 66.4x | ✅ Complete |
 | validators-rs | 15M | 13.3x - 79.4x | ✅ Complete |
 
@@ -59,23 +59,23 @@ rusputyn/
 3. **python-dotenv-rs** (273M) - ✅ Complete
 4. **attrs-rs** (443M) - 📋 Next
 
-See [ROADMAP.md](./ROADMAP.md) for complete development queue and community voting.
-See [DELIVERABLES.md](./DELIVERABLES.md) for technical analysis.
+**📍 See [ROADMAP.md](./ROADMAP.md) for complete development queue and community voting.**
 
 ## Performance Results
 
-**Average speedup: 48x faster** across benchmarked packages
+**All 10 packages fully benchmarked!** Average of best speedups: **109x faster**
 
-See [PERFORMANCE.md](./PERFORMANCE.md) for detailed benchmark results including:
-- **261.7x faster** charset encoding detection
-- **66.4x faster** number formatting
-- **58.8x faster** URL validation
-- Real-world impact analysis
+**Top Performers:**
+- 🥇 **614x faster** - python-dotenv set_key operations
+- 🥈 **261.7x faster** - charset encoding detection
+- 🥉 **67.9x faster** - dateutil ISO parsing with timezone
+
+**📊 See [BENCHMARK_SUMMARY.md](./BENCHMARK_SUMMARY.md) for complete results and [BENCHMARKS.csv](./BENCHMARKS.csv) for raw data.**
 
 ## Performance Philosophy
 
 - **Drop-in compatibility**: 100% API-compatible with original Python packages
-- **Real-world speedups**: 10-260x performance improvements on typical workloads
+- **Real-world speedups**: 1.2-614x performance improvements on typical workloads
 - **Zero-config**: Install and immediately benefit from performance gains
 - **Safe**: Leverages Rust's memory safety guarantees
 
@@ -89,9 +89,11 @@ Rusputyn follows a **core-crate architecture** (like Polars and Pydantic v2):
 
 **For Rust Developers:** Every package will be available as a standalone Rust crate. You get battle-tested, production-ready utilities optimized for speed. Coming to crates.io soon.
 
-**For Python Developers:** Same packages you know, 10-260x faster, with the confidence that the core logic is being improved by both Python and Rust communities.
+**For Python Developers:** Same packages you know, 1.2-614x faster, with the confidence that the core logic is being improved by both Python and Rust communities.
 
 ## Getting Started
+
+**📚 See [QUICK_START.md](./QUICK_START.md) for detailed installation and usage guides.**
 
 ### Quick Example
 
@@ -119,8 +121,15 @@ Each package in `libraries/` is an independent Rust crate with Python bindings v
 
 ## Contributing
 
-This is an open-source initiative to accelerate Python's ecosystem. Contributions welcome!
+This is an open-source initiative to accelerate Python's ecosystem. We welcome contributions of all kinds!
+
+**🤝 See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidelines on:**
+- Testing packages and reporting bugs
+- Implementing new packages
+- Optimizing existing code
+- Improving documentation
+- Voting on package priorities
 
 ## License
 
-TBD
+MIT License - see [LICENSE](./LICENSE) file for details

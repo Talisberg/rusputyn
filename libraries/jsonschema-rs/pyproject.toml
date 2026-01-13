@@ -6,7 +6,6 @@ build-backend = "maturin"
 name = "jsonschema-rs"
 version = "0.1.0"
 description = "High-performance Rust implementation of JSON Schema validation"
-readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
 keywords = ["json", "jsonschema", "validation", "rust", "performance"]

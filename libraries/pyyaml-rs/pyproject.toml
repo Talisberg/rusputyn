@@ -6,7 +6,6 @@ build-backend = "maturin"
 name = "pyyaml-rs"
 version = "0.1.0"
 description = "High-performance Rust implementation of PyYAML"
-readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
 keywords = ["yaml", "rust", "performance"]

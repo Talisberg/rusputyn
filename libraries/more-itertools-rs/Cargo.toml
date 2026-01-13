@@ -1,0 +1,22 @@
+[package]
+name = "more-itertools-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Rusputyn Contributors"]
+description = "High-performance Rust implementation of more-itertools for Python"
+license = "MIT"
+repository = "https://github.com/Talisberg/rusputyn"
+
+[lib]
+name = "more_itertools_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["extension-module"] }
+itertools = "0.12"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true

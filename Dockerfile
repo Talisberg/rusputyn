@@ -1,7 +1,7 @@
 # Rusputyn Testing Environment
 # Provides Python + Rust environment for building and testing packages
 
-FROM rust:1.75-slim
+FROM rust:1.83-slim
 
 # Install Python and build dependencies
 RUN apt-get update && apt-get install -y \

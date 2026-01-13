@@ -8,7 +8,6 @@ version = "0.1.0"
 description = "High-performance Rust implementation of humanize - turn numbers and dates into human-readable strings"
 requires-python = ">=3.8"
 authors = [{name = "Rusputyn Contributors"}]
-readme = "README.md"
 keywords = ["humanize", "formatting", "numbers", "dates", "performance", "rust"]
 classifiers = [
     "Development Status :: 4 - Beta",

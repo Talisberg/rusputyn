@@ -8,7 +8,6 @@ version = "0.1.0"
 description = "High-performance Rust implementation of colorama - cross-platform colored terminal text"
 requires-python = ">=3.8"
 authors = [{name = "Rusputyn Contributors"}]
-readme = "README.md"
 keywords = ["colorama", "color", "terminal", "ansi", "performance", "rust"]
 classifiers = [
     "Development Status :: 4 - Beta",
