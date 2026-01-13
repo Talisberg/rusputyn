@@ -121,7 +121,7 @@ impl ParsedDateTime {
     }
 }
 
-fn parse_datetime_str(s: &str, dayfirst: bool, yearfirst: bool) -> Option<ParsedDateTime> {
+fn parse_datetime_str(s: &str, dayfirst: bool, _yearfirst: bool) -> Option<ParsedDateTime> {
     let s = s.trim();
     let mut result = ParsedDateTime::new();
     
@@ -251,7 +251,7 @@ fn parse(
     ignoretz: bool,
     tzinfos: Option<&Bound<'_, PyAny>>,
 ) -> PyResult<PyObject> {
-    let _ = (parserinfo, fuzzy, fuzzy_with_tokens, default, tzinfos); // TODO: implement these
+    let _ = (parserinfo, fuzzy, fuzzy_with_tokens, default, ignoretz, tzinfos); // TODO: implement these
 
     let parsed = parse_datetime_str(timestr, dayfirst, yearfirst)
         .ok_or_else(|| pyo3::exceptions::PyValueError::new_err(
@@ -267,8 +267,6 @@ fn parse(
     }
 
     // Create Python datetime using the datetime module
-    let _ = ignoretz; // TODO: implement timezone handling
-
     let datetime_mod = py.import_bound("datetime")?;
     let datetime_cls = datetime_mod.getattr("datetime")?;
 

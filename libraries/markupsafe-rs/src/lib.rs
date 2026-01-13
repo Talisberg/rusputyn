@@ -1,14 +1,4 @@
 use pyo3::prelude::*;
-use pyo3::types::PyString;
-
-/// HTML escape mapping for common characters
-const HTML_ESCAPE_TABLE: &[(char, &str)] = &[
-    ('&', "&amp;"),
-    ('<', "&lt;"),
-    ('>', "&gt;"),
-    ('"', "&quot;"),
-    ('\'', "&#x27;"),
-];
 
 /// Escape HTML special characters in a string
 #[pyfunction]
@@ -153,7 +143,7 @@ impl Markup {
     }
     
     /// Join an iterable of strings, escaping them
-    fn join(&self, py: Python<'_>, seq: &PyAny) -> PyResult<Markup> {
+    fn join(&self, _py: Python<'_>, seq: &PyAny) -> PyResult<Markup> {
         let iter = seq.iter()?;
         let mut parts = Vec::new();
         
