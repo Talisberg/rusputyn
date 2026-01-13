@@ -4,18 +4,26 @@ build-backend = "maturin"
 
 [project]
 name = "jsonschema-rs"
-version = "0.1.0"
+version = "0.1.1"
 description = "High-performance Rust implementation of JSON Schema validation"
 requires-python = ">=3.8"
-license = { text = "MIT" }
-keywords = ["json", "jsonschema", "validation", "rust", "performance"]
+authors = [{name = "Rusputyn Contributors"}]
+readme = "README.md"
+keywords = ["json", "jsonschema", "validation", "schema", "performance", "rust"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Rust",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
 [tool.maturin]
 module-name = "jsonschema_rs"
+features = ["pyo3/extension-module"]
