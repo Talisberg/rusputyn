@@ -3,13 +3,12 @@ requires = ["maturin>=1.0,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "tabulate_rs"
+name = "more-itertools-rs"
 version = "0.1.0"
-description = "High-performance Rust implementation of tabulate - pretty-print tabular data with multiple output formats"
-requires-python = ">=3.8"
+description = "High-performance Rust implementation of more-itertools"
 authors = [{name = "Rusputyn Contributors"}]
 readme = "README.md"
-keywords = ["tabulate", "table", "formatting", "performance", "rust"]
+requires-python = ">=3.8"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -21,7 +20,13 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Rust",
+    "Topic :: Software Development :: Libraries",
 ]
+keywords = ["itertools", "iterator", "performance", "utilities"]
+
+[project.urls]
+Homepage = "https://github.com/Talisberg/rusputyn"
+Repository = "https://github.com/Talisberg/rusputyn"
 
 [tool.maturin]
-features = ["pyo3/extension-module"]
+module-name = "more_itertools_rs"

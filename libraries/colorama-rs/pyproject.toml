@@ -5,8 +5,24 @@ build-backend = "maturin"
 [project]
 name = "colorama_rs"
 version = "0.1.0"
-description = "Fast Rust implementation of Python's colorama library"
+description = "High-performance Rust implementation of colorama - cross-platform colored terminal text"
 requires-python = ">=3.8"
+authors = [{name = "Rusputyn Contributors"}]
+readme = "README.md"
+keywords = ["colorama", "color", "terminal", "ansi", "performance", "rust"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
+    "Topic :: Terminals",
+]
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
