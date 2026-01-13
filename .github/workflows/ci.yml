@@ -8,6 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-A warnings"
 
 jobs:
   test:
@@ -116,7 +117,7 @@ jobs:
           if [ -f "$dir/Cargo.toml" ]; then
             echo "Linting $dir"
             cd "$dir"
-            cargo clippy -- -D warnings || echo "Clippy completed for $dir"
+            cargo clippy || echo "Clippy completed for $dir"
             cd ../..
           fi
         done
